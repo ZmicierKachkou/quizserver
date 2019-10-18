@@ -1,10 +1,10 @@
 package by.bsu.zmicier.schemas.builders;
 
-import by.bsu.zmicier.schemas.SchemaPresentator;
+import by.bsu.zmicier.schemas.SchemaBuilder;
 
 import java.util.Arrays;
 
-public class StableSchemaBuilder implements SchemaPresentator {
+public class StableSchemaBuilder implements SchemaBuilder {
     private int tours;
     private int[] teams;
 

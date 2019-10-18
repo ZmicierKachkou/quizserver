@@ -5,6 +5,6 @@ import by.bsu.zmicier.dto.Tour;
 
 import java.util.List;
 
-public interface SchemaPresentator {
+public interface SchemaBuilder {
     int[][][] getSchema();
 }
