@@ -91,4 +91,15 @@ public class Tour {
     public int hashCode() {
         return Objects.hash(tourId, tourName, tourDescription, questions, teams);
     }
+
+    @Override
+    public String toString() {
+        return "Tour{" +
+                "tourId=" + tourId +
+                ", tourName='" + tourName + '\'' +
+                ", tourDescription='" + tourDescription + '\'' +
+                ", questions=" + questions +
+                ", teams=" + teams +
+                '}';
+    }
 }
