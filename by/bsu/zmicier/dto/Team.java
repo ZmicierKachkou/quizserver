@@ -2,18 +2,19 @@ package by.bsu.zmicier.dto;
 
 import by.bsu.zmicier.utils.NotNullUtils;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-public class Team {
+public class Team implements Serializable {
     private int id;
     private String name;
-    private List<Player> players;
+    private List<Integer> players;
 
     public Team() {
     }
 
-    public Team(int id, String name, List<Player> players) {
+    public Team(int id, String name, List<Integer> players) {
         this.id = id;
         this.name = name;
         this.players = players;
@@ -35,11 +36,11 @@ public class Team {
         this.name = name;
     }
 
-    public List<Player> getPlayers() {
+    public List<Integer> getPlayers() {
         return NotNullUtils.getList(players);
     }
 
-    public void setPlayers(List<Player> players) {
+    public void setPlayers(List<Integer> players) {
         this.players = players;
     }
 

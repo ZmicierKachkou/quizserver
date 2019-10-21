@@ -2,11 +2,12 @@ package by.bsu.zmicier.dto;
 
 import by.bsu.zmicier.utils.NotNullUtils;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class Tour {
+public class Tour implements Serializable {
     private int tourId;
     private String tourName;
     private String tourDescription;

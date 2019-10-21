@@ -1,6 +1,8 @@
 package by.bsu.zmicier.components;
 
-import by.bsu.zmicier.dto.Player;
+import by.bsu.zmicier.components.actions.ActionMapping;
+import by.bsu.zmicier.components.messages.Message;
+import by.bsu.zmicier.dto.GameState;
 import by.bsu.zmicier.dto.Team;
 import by.bsu.zmicier.dto.Tour;
 import by.bsu.zmicier.schemas.AllSchemas;
@@ -9,6 +11,7 @@ import java.util.*;
 
 public class QuizServer {
     private AllSchemas schema;
+    private GameState gameState = new GameState();
 
     public AllSchemas getSchema() {
         return schema;
@@ -16,6 +19,10 @@ public class QuizServer {
 
     public void setSchema(AllSchemas schema) {
         this.schema = schema;
+    }
+
+    public Message processRequest(Request request) {
+         return ActionMapping.getAction(request.getAction()).execute(request, gameState);
     }
 
     private List<String> unifyNames(List<String> names) {
@@ -38,6 +45,7 @@ public class QuizServer {
         return unifiedNames;
     }
 
+    /**
     public List<Tour> generateQuiz(List<String> names) {
         List<String> newNames = unifyNames(names);
         if(schema.isShuffle()) {
@@ -79,12 +87,12 @@ public class QuizServer {
             tourId++;
         }
         return quiz;
-    }
+    } */
 
     public static void main(String[] args) {
         QuizServer server = new QuizServer();
         server.setSchema(AllSchemas.SCHEMA_4_4_1_SHUFFLE);
-        System.out.println(server.generateQuiz(Arrays.asList("Дима", "Инга", "Илья", "Юля", "Антон", "Надя", "Влад", "Паша", "Андрей")));
+        // System.out.println(server.generateQuiz(Arrays.asList("Дима", "Инга", "Илья", "Юля", "Антон", "Надя", "Влад", "Паша", "Андрей")));
     }
 
 
